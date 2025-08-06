@@ -1,0 +1,72 @@
+
+BoxLayout:
+    orientation: 'vertical'
+    padding: [40, 80, 40, 40]
+    spacing: 20
+    canvas.before:
+        Color:
+            rgba: 0.1, 0.1, 0.1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        text: "Vanish Pay"
+        font_size: 48
+        bold: True
+        color: 1, 1, 1, 1
+        size_hint_y: None
+        height: 100
+        halign: 'center'
+
+    Image:
+        source: "icons/hacker_icon.png"
+        size_hint: None, None
+        size: "150dp", "150dp"
+        pos_hint: {"center_x": 0.5}
+
+    Label:
+        text: "Escaneie o QR Code ou copie o código PIX:"
+        font_size: 20
+        color: 0.8, 0.8, 0.8, 1
+        size_hint_y: None
+        height: 40
+        halign: 'center'
+
+    Button:
+        text: "Gerar PIX"
+        font_size: 24
+        size_hint_y: None
+        height: 70
+        background_normal: ""
+        background_color: 0.1, 0.7, 0.1, 1
+        color: 1, 1, 1, 1
+        border_radius: [20]
+        on_press: app.generate_pix()
+
+    Button:
+        text: "Ver Vendas"
+        font_size: 24
+        size_hint_y: None
+        height: 70
+        background_normal: ""
+        background_color: 0.1, 0.1, 0.7, 1
+        color: 1, 1, 1, 1
+        border_radius: [20]
+        on_press: app.show_sales_screen()
+
+    Image:
+        id: qr_code_image
+        size_hint: None, None
+        size: "400dp", "400dp"
+        pos_hint: {"center_x": 0.5}
+        canvas.before:
+            Color:
+                rgba: 0.1, 0.1, 0.1, 0.7
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+
+    Widget:
+        size_hint_y: 1
